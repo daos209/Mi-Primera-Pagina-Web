@@ -1,57 +1,100 @@
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #ffffff;
-    color: #333;
-    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #1a1a1d;
+    color: #ffffff;
 }
 
-
 header {
-    background: #41899f;
-    color: #000000;
-    padding: 1rem 0;
+    background-color: #0d0d0d;
+    color: #d1c40e;
+    padding: 1.5rem;
     text-align: center;
+    border-bottom: 2px solid #e94560;
 }
 
 header h1 {
-    font-size: 2rem;
     margin: 0;
+    font-size: 2.5rem;
 }
 
-
-main {
-    padding: 1rem;
-    text-align: left;
+nav a {
+    color: #e94560;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
 }
 
-.categories h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.categories {
+    padding: 1.5rem;
 }
 
 .categories ul {
     list-style-type: none;
     padding: 0;
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .categories li {
-    margin: 0.5rem 0;
+    text-align: center;
 }
 
 .categories a {
     text-decoration: none;
-    color: #000000; 
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    display: inline-block;
-
+    color: #e94560;
+    font-size: 1.25rem;
+    display: block;
+    margin: 0 auto;
 }
 
-.categories a:hover {
-    text-decoration: underline;
-    background-color: #ddd; 
-    color: #333;
+.categories img {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 0.5rem;
+}
+
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.game-item {
+    background-color: #333333;
+    border: 2px solid #e94560;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+    width: 300px;
+    text-align: center;
+}
+
+.game-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 2px solid #e94560;
+    margin-bottom: 1rem;
+}
+
+.game-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.game-item p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.price {
+    font-weight: bold;
+    color: #e94560;
 }

@@ -1,1 +1,1 @@
-Link: https://github.com/daos209/topgames.githup.io
+Link: https://daos209.github.io/topgames.githup.io/

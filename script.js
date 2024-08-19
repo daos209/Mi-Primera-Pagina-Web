@@ -1,22 +1,22 @@
+function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const m = hoy.getMonth() - fechaNacimiento.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+        edad--;
+    }
+    return edad;
+}
+
+$.validator.addMethod("minAge", function(value, element, minAge) {
+    if (this.optional(element)) {
+        return true;
+    }
+    const edad = calcularEdad(new Date(value));
+    return edad >= minAge;
+}, $.format("Debes tener al menos {0} años para registrarte.", 13));
+
 $(document).ready(function() {
-    $.validator.addMethod("mayorDeEdad", function(value, element) {
-        if (this.optional(element)) {
-            return true;
-        }
-        var today = new Date();
-        var birthDate = new Date(value);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age >= 13;
-    }, "Debes tener al menos 13 años para registrarte.");
-
-    $.validator.addMethod("contrasenaSegura", function(value, element) {
-        return this.optional(element) || /^(?=.*\d)(?=.*[A-Z]).{6,18}$/.test(value);
-    }, "La contraseña debe tener entre 6 y 18 caracteres, incluir al menos un número y una letra mayúscula.");
-
     $("#registroForm").validate({
         rules: {
             nombreCompleto: "required",
@@ -27,7 +27,8 @@ $(document).ready(function() {
             },
             password: {
                 required: true,
-                contrasenaSegura: true
+                minlength: 6,
+                maxlength: 18
             },
             confirmPassword: {
                 required: true,
@@ -35,25 +36,28 @@ $(document).ready(function() {
             },
             fechaNacimiento: {
                 required: true,
-                mayorDeEdad: true
+                minAge: 13
             }
         },
         messages: {
-            nombreCompleto: "Por favor, ingresa tu nombre completo",
-            nombreUsuario: "Por favor, ingresa un nombre de usuario",
+            nombreCompleto: "Por favor, ingresa tu nombre completo.",
+            nombreUsuario: "Por favor, ingresa un nombre de usuario.",
             email: {
-                required: "Por favor, ingresa tu correo electrónico",
-                email: "Por favor, ingresa un correo electrónico válido"
+                required: "Por favor, ingresa tu correo electrónico.",
+                email: "Por favor, ingresa un correo electrónico válido."
             },
             password: {
-                required: "Por favor, ingresa una contraseña"
+                required: "Por favor, ingresa una contraseña.",
+                minlength: "La contraseña debe tener al menos 6 caracteres.",
+                maxlength: "La contraseña no puede exceder los 18 caracteres."
             },
             confirmPassword: {
-                required: "Por favor, confirma tu contraseña",
-                equalTo: "Las contraseñas no coinciden"
+                required: "Por favor, confirma tu contraseña.",
+                equalTo: "Las contraseñas no coinciden."
             },
             fechaNacimiento: {
-                required: "Por favor, ingresa tu fecha de nacimiento"
+                required: "Debes ingresar tu fecha de nacimiento.",
+                minAge: $.format("Debes tener al menos {0} años para registrarte.", 13)
             }
         },
         submitHandler: function(form) {

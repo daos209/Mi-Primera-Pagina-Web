@@ -1,26 +1,12 @@
-function calcularEdad(fechaNacimiento) {
-    const hoy = new Date();
-    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-    const m = hoy.getMonth() - fechaNacimiento.getMonth();
-    if (m < 0 || (m === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
-        edad--;
-    }
-    return edad;
-}
-
-$.validator.addMethod("minAge", function(value, element, minAge) {
-    if (this.optional(element)) {
-        return true;
-    }
-    const edad = calcularEdad(new Date(value));
-    return edad >= minAge;
-}, $.format("Debes tener al menos {0} años para registrarte.", 13));
-
 $(document).ready(function() {
-    $("#registroForm").validate({
+    $('#registroForm').validate({
         rules: {
-            nombreCompleto: "required",
-            nombreUsuario: "required",
+            nombreCompleto: {
+                required: true
+            },
+            nombreUsuario: {
+                required: true
+            },
             email: {
                 required: true,
                 email: true
@@ -28,7 +14,8 @@ $(document).ready(function() {
             password: {
                 required: true,
                 minlength: 6,
-                maxlength: 18
+                maxlength: 18,
+                pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,18}$/
             },
             confirmPassword: {
                 required: true,
@@ -36,33 +23,44 @@ $(document).ready(function() {
             },
             fechaNacimiento: {
                 required: true,
+                dateISO: true,
                 minAge: 13
+            },
+            direccion: {
+                required: false
             }
         },
         messages: {
-            nombreCompleto: "Por favor, ingresa tu nombre completo.",
-            nombreUsuario: "Por favor, ingresa un nombre de usuario.",
+            nombreCompleto: "Por favor ingresa tu nombre completo.",
+            nombreUsuario: "Por favor ingresa un nombre de usuario.",
             email: {
-                required: "Por favor, ingresa tu correo electrónico.",
-                email: "Por favor, ingresa un correo electrónico válido."
+                required: "Por favor ingresa tu correo electrónico.",
+                email: "Por favor ingresa un correo electrónico válido."
             },
             password: {
-                required: "Por favor, ingresa una contraseña.",
+                required: "Por favor ingresa una contraseña.",
                 minlength: "La contraseña debe tener al menos 6 caracteres.",
-                maxlength: "La contraseña no puede exceder los 18 caracteres."
+                maxlength: "La contraseña no puede tener más de 18 caracteres."
             },
             confirmPassword: {
-                required: "Por favor, confirma tu contraseña.",
+                required: "Por favor repite tu contraseña.",
                 equalTo: "Las contraseñas no coinciden."
             },
             fechaNacimiento: {
-                required: "Debes ingresar tu fecha de nacimiento.",
-                minAge: $.format("Debes tener al menos {0} años para registrarte.", 13)
+                required: "Por favor ingresa tu fecha de nacimiento.",
+                minAge: "Debes tener al menos 13 años para registrarte."
             }
-        },
-        submitHandler: function(form) {
-            alert("Formulario enviado correctamente!");
-            form.submit();
         }
     });
+
+    $.validator.addMethod("minAge", function(value, element, min) {
+        var today = new Date();
+        var birthDate = new Date(value);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age >= min;
+    }, "Debes tener al menos {0} años.");
 });

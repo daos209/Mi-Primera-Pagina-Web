@@ -1,6 +1,23 @@
 $(document).ready(function() {
-    // Inicializar la validación del formulario
-    $('#registroForm').validate({
+    $.validator.addMethod("mayorDeEdad", function(value, element) {
+        if (this.optional(element)) {
+            return true;
+        }
+        var today = new Date();
+        var birthDate = new Date(value);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age >= 13;
+    }, "Debes tener al menos 13 años para registrarte.");
+
+    $.validator.addMethod("contrasenaSegura", function(value, element) {
+        return this.optional(element) || /^(?=.*\d)(?=.*[A-Z]).{6,18}$/.test(value);
+    }, "La contraseña debe tener entre 6 y 18 caracteres, incluir al menos un número y una letra mayúscula.");
+
+    $("#registroForm").validate({
         rules: {
             nombreCompleto: {
                 required: true
@@ -14,9 +31,7 @@ $(document).ready(function() {
             },
             password: {
                 required: true,
-                minlength: 8, // Longitud mínima de 8 caracteres
-                maxlength: 18, // Longitud máxima de 18 caracteres
-                pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,18}$/
+                contrasenaSegura: true
             },
             confirmPassword: {
                 required: true,
@@ -39,10 +54,7 @@ $(document).ready(function() {
                 email: "Por favor ingresa un correo electrónico válido."
             },
             password: {
-                required: "Por favor ingresa una contraseña.",
-                minlength: "La contraseña debe tener al menos 8 caracteres.",
-                maxlength: "La contraseña no puede tener más de 18 caracteres.",
-                pattern: "La contraseña debe contener al menos una letra mayúscula, un número y un carácter especial."
+                required: "Por favor, ingresa una contraseña"
             },
             confirmPassword: {
                 required: "Por favor repite tu contraseña.",
@@ -52,23 +64,10 @@ $(document).ready(function() {
                 required: "Por favor ingresa tu fecha de nacimiento.",
                 minAge: "Debes tener al menos 13 años para registrarte."
             }
+        },
+        submitHandler: function(form) {
+            alert("Formulario enviado correctamente!");
+            form.submit();
         }
     });
-
-    // Método de validación personalizada para la edad mínima
-    $.validator.addMethod("minAge", function(value, element, min) {
-        var today = new Date();
-        var birthDate = new Date(value);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age >= min;
-    }, "Debes tener al menos {0} años.");
-
-    // Método de validación personalizada para el patrón de contraseña
-    $.validator.addMethod("pattern", function(value, element, pattern) {
-        return this.optional(element) || pattern.test(value);
-    }, "La contraseña no cumple con el formato requerido.");
 });

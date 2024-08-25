@@ -18,26 +18,15 @@
     <main class="container">
         
             <div class="formulario">
-                <h1>Inicio de sesión</h1>
+                <h1>Recuperar contraseña</h1>
                 <form method="post">
                     <div class="username">
-                        <input type="text" id="username" required>
-                        <label>Nombre de usuario</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email" class="form-label">Correo Electrónico</label>
                         <span></span>
                         
                     </div>
-                    <div class="username">
-                        <input type="text" id="username" required>
-                        <label>Contraseña</label>
-                        
-                    </div>
-                    <div class="recordar">
-                        <div class="recordar"><a href="recuperar.html">¿Olvidaste tu contraseña?</a></div>
-                    </div>
-                    <input type="submit" value="Iniciar">
-                    <div class="registrarse">
-                        Quiero hacer el <a href="registro.html">registro</a>
-                    </div>
+                    <button type="send" class="btn btn-secondary">Enviar</button>
                 </form>
             </div>
         

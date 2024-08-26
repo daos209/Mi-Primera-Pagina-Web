@@ -1,8 +1,8 @@
 /* General */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a1d; /* Fondo oscuro */
-    color: #ffffff; /* Texto blanco */
+    background-color: #1a1a1d;
+    color: #ffffff; 
     margin: 0;
     padding: 0;
 }
@@ -24,12 +24,20 @@ header h1 {
 /* Navegación */
 nav a {
     text-decoration: none;
-    color: #e94560;
+    color: #ffffff;
     font-size: 1.25rem;
     margin: 0 1rem;
 }
 
-/* Contenido Principal */
+nav .btn-info {
+    background-color: #17a2b8; 
+}
+
+nav .btn-info:hover {
+    background-color: #138496;
+}
+
+
 main {
     padding: 1rem;
 }
@@ -37,238 +45,23 @@ main {
 /* Categorías y Artículos */
 .categories a {
     text-decoration: none;
-    color: #e94560;
+    color: #ffffff;
     font-size: 1.25rem;
     display: block;
-    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .categories img {
     width: 100%;
     height: auto;
+    max-width: 250px; 
     display: block;
     margin: 0 auto 0.5rem;
+    border-radius: 8px; 
 }
 
-.game-item {
-    background-color: #333333;
-    border: 2px solid #e94560;
-    border-radius: 10px;
-    margin: 1rem;
-    padding: 1rem;
-    text-align: center;
-}
-
-.game-item img {
-    max-width: 100%;
-    height: auto;
-    border-bottom: 2px solid #e94560;
-    margin-bottom: 1rem;
-}
-
-.game-item h3 {
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-}
-
-.game-item p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-}
-
-.price {
-    font-weight: bold;
-    color: #e94560;
-}
-
-/* Registro y Botones */
-.registro {
-    background-color: #333333;
-    border: 2px solid #e94560;
-    border-radius: 10px;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-.registro h2 {
-    color: #d1c40e;
-    margin-bottom: 1.5rem;
-}
-
-.form-label {
-    color: #ffffff;
-}
-
-.btn-primary {
-    background-color: #e94560;
-    border-color: #e94560;
-}
-
-.btn-primary:hover {
-    background-color: #d1c40e;
-    border-color: #d1c40e;
-}
-
-.btn-secondary {
-    background-color: #333333;
-    border-color: #e94560;
-    color: #e94560;
-}
-
-.btn-secondary:hover {
-    background-color: #e94560;
-    color: #ffffff;
-}
-
-.error {
-    color: #e94560;
-}
-
-/* Login */
-.formulario {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #333333;
-    border: 2px solid #e94560;
-    border-radius: 10px;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-.formulario h1 {
-    text-align: center;
-    padding: 0 0 20px 0;
-    border-bottom: 1px solid silver;
-}
-
-.formulario form {
-    padding: 0 40px;
-    box-sizing: border-box;
-}
-
-form .username {
-    position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
-}
-
-.username input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
-}
-
-.username label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.username span::before {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #e94560;
-    transition: .5s;
-}
-
-.username input:focus ~ label {
-    top: -5px;
-    color: #e94560;
-}
-
-.username input:focus ~ span::before {
-    width: 100%;
-}
-
-.recordar a {
-    margin: -5px 0 20px 5px;
-    color: red;
-    cursor: pointer;
-}
-
-.recordar:hover {
-    text-decoration: underline;
-}
-
-input[type="submit"] {
-    width: 100%;
-    height: 50%;
-    border: 1px solid;
-    background: #e94560;
-    border-radius: 25px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    outline: none;
-}
-
-input[type="submit"]:hover {
-    border-color: #e94560;
-    transition: 5s;
-}
-
-.registrarse {
-    margin: 30px 0;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-}
-
-.registrarse a {
-    color: #fff01e;
-    text-decoration: none;
-}
-
-.registrarse a:hover {
-    text-decoration: underline;
-}
-
-/* Estilos generales del cuerpo */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a1d;
-    color: #ffffff;
-}
-
-/* Estilo del encabezado */
-header {
-    background-color: #0d0d0d;
-    color: #d1c40e;
-    padding: 1.5rem;
-    text-align: center;
-    border-bottom: 2px solid #e94560;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-/* Navegación */
-nav a {
-    text-decoration: none;
-    color: #e94560;
-    font-size: 1.25rem;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Contenedor de la lista de juegos */
+/* Estilo para la lista de juegos */
 .game-list {
     display: flex;
     flex-wrap: wrap;
@@ -278,8 +71,8 @@ nav a {
 
 /* Elemento individual del juego */
 .game-item {
-    background-color: #333333; /* Gris oscuro */
-    border: 2px solid #e94560; /* Borde rojo */
+    background-color: #333333;
+    border: 2px solid #e94560; 
     border-radius: 10px;
     margin: 1rem;
     padding: 1rem;
@@ -291,7 +84,7 @@ nav a {
 .game-item img {
     max-width: 100%;
     height: auto;
-    border-bottom: 2px solid #e94560; /* Borde rojo inferior */
+    border-bottom: 2px solid #e94560;
     margin-bottom: 1rem;
 }
 
@@ -311,83 +104,6 @@ nav a {
 .price {
     font-weight: bold;
     color: #e94560;
-    border-top: 2px solid #d1c40e; /* Borde adicional encima del precio */
-    padding-top: 0.5rem;
-}
-
-/* Estilos generales del cuerpo */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a1d;
-    color: #ffffff;
-}
-
-/* Estilo del encabezado */
-header {
-    background-color: #0d0d0d;
-    color: #d1c40e;
-    padding: 1.5rem;
-    text-align: center;
-    border-bottom: 2px solid #e94560;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-/* Navegación */
-nav a {
-    text-decoration: none;
-    color: #e94560;
-    font-size: 1.25rem;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Contenedor de la lista de juegos */
-.game-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem;
-}
-
-/* Elemento individual del juego */
-.game-item {
-    background-color: #333333; /* Gris oscuro */
-    border: 2px solid #e94560; /* Borde rojo */
-    border-radius: 10px;
-    margin: 1rem;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-}
-
-/* Imagen del juego */
-.game-item img {
-    max-width: 100%;
-    height: auto;
-    border-bottom: 2px solid #e94560; /* Borde rojo inferior */
-    margin-bottom: 1rem;
-}
-
-/* Título del juego */
-.game-item h3 {
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-}
-
-/* Descripción del juego */
-.game-item p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-}
-
-/* Precio del juego */
-.price {
-    font-weight: bold;
-    color: #e94560;
-    border-top: 2px solid #d1c40e; /* Borde adicional encima del precio */
+    border-top: 2px solid #d1c40e; 
     padding-top: 0.5rem;
 }

@@ -4,43 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acción - TOPGAMES</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>TOPGAMES - Acción</h1>
-        <nav>
-            <a href="index.html">Inicio</a>
+    <header class="container-fluid">
+        <h1>TOPGAMES</h1>
+        <nav class="d-flex justify-content-between align-items-center">
+            <a href="index.html" class="btn btn-secondary">Inicio</a>
+            <a href="carrito.html" class="btn btn-warning">Carrito</a>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <h2>Juegos de Acción</h2>
+        <div class="row">
+            <!-- Primer juego -->
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="game-item card h-100">
+                    <img src="Imagenes/COD_MW3.jpg" alt="Call of Duty: Modern Warfare III" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Call of Duty: Modern Warfare III</h3>
+                        <p>El FPS que redefine la guerra, secuela del exitoso Call of Duty: Modern Warfare II, el Capitán Price se enfrenta a la amenaza definitiva. El criminal de guerra ultranacionalista Vladimir Makarov está extendiendo su control por todo el mundo.</p>
+                        <p class="price">$59.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Call of Duty: Modern Warfare III', 'Imagenes/COD_MW3.jpg', 59.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Segundo juego -->
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="game-item card h-100">
+                    <img src="Imagenes/GTA5.jpg" alt="GTA V" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">GTA V</h3>
+                        <p>Bienvenido a Los Santos, donde podrás explorar un mundo abierto masivo lleno de acción, crimen y oportunidades ilimitadas.</p>
+                        <p class="price">$29.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('GTA V', 'Imagenes/GTA5.jpg', 29.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Puedes agregar más juegos siguiendo este mismo formato -->
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acción - TOPGAMES</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="container-fluid">
+        <h1>TOPGAMES</h1>
+        <nav class="d-flex justify-content-between align-items-center">
+            <a href="index.html" class="btn btn-secondary">Inicio</a>
+            <a href="carrito.html" class="btn btn-warning">Carrito</a>
+            <a href="registro.html" class="btn btn-primary">Registrarse</a>
         </nav>
     </header>
     
-    <main>
-        <section class="game-list">
-            <article class="game-item">
-                <img src="Imagenes/GTA5.jpg" alt="GTA V">
-                <h3>GTA V</h3>
-                <p>Bienvenido a Los Santos, juega como tres personajes únicos: un joven estafador, un veterano ladrón de bancos y un impredecible psicópata, mientras realizan peligrosos atracos en busca de fortuna y poder. Con una narrativa envolvente, un vasto mapa interactivo y un modo multijugador online expansivo, GTA V ofrece una experiencia de juego inolvidable.</p>
-                <p class="price">Precio: $20.000</p>
-                <button class="btn btn-primary add-to-cart-btn"
+    <main class="container">
+        <section class="productos row">
+            <h2>Acción</h2>
+
+            <!-- Call of Duty: Modern Warfare III -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="Imagenes/Call of Duty: Modern Warfare III" class="card-img-top" alt="Call of Duty: Modern Warfare III">
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty: Modern Warfare III</h5>
+                        <p class="card-text">Precio: $59.99</p>
+                        <button class="btn btn-primary add-to-cart-btn"
                                 data-id="1"
                                 data-nombre="Call of Duty: Modern Warfare III"
                                 data-imagen="Imagenes/Call of Duty: Modern Warfare III"
                                 data-precio="59.99">
-                                Agregar al carrito
-            </article>
-            <article class="game-item">
-                <img src="Imagenes/COD MW3.jpg" alt="Call of Duty: Modern Warfare III">
-                <h3>Call of Duty: Modern Warfare III</h3>
-                <p>El FPS que redefine la guerra, secuela del exitoso Call of Duty: Modern Warfare II, el Capitán Price se enfrenta a la amenaza definitiva. El criminal de guerra ultranacionalista Vladimir Makarov está extendiendo su control por todo el mundo.</p>
-                <p class="price">Precio: $59.000</p>
-                <button class="btn btn-primary add-to-cart-btn"
-                                data-id="1"
-                                data-nombre="Call of Duty: Modern Warfare III"
-                                data-imagen="Imagenes/Call of Duty: Modern Warfare III"
-                                data-precio="59.99">
-                                Agregar al carrito
-            </article>
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GTA V -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="Imagenes/GTA V.jpg" class="card-img-top" alt="GTA V">
+                    <div class="card-body">
+                        <h5 class="card-title">GTA V</h5>
+                        <p class="card-text">Precio: $49.99</p>
+                        <button class="btn btn-primary add-to-cart-btn"
+                                data-id="2"
+                                data-nombre="GTA V"
+                                data-imagen="Imagenes/GTA V.jpg"
+                                data-precio="49.99">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

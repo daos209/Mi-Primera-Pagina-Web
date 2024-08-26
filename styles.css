@@ -1,9 +1,13 @@
+/* General */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a1d;
-    color: #ffffff;
+    background-color: #1a1a1d; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
 }
 
+/* Encabezado */
 header {
     background-color: #0d0d0d;
     color: #d1c40e;
@@ -17,6 +21,20 @@ header h1 {
     font-size: 2.5rem;
 }
 
+/* Navegación */
+nav a {
+    text-decoration: none;
+    color: #e94560;
+    font-size: 1.25rem;
+    margin: 0 1rem;
+}
+
+/* Contenido Principal */
+main {
+    padding: 1rem;
+}
+
+/* Categorías y Artículos */
 .categories a {
     text-decoration: none;
     color: #e94560;
@@ -63,6 +81,7 @@ header h1 {
     color: #e94560;
 }
 
+/* Registro y Botones */
 .registro {
     background-color: #333333;
     border: 2px solid #e94560;
@@ -105,13 +124,12 @@ header h1 {
     color: #e94560;
 }
 
-/* _______________________________login______________________________ */ 
-
+/* Login */
 .formulario {
-    position:absolute;
-    top:50%;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: #333333;
     border: 2px solid #e94560;
     border-radius: 10px;
@@ -136,7 +154,7 @@ form .username {
     margin: 30px 0;
 }
 
-.username input{
+.username input {
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -146,7 +164,7 @@ form .username {
     outline: none;
 }
 
-.username label{
+.username label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -157,7 +175,7 @@ form .username {
     transition: .5s;
 }
 
-.username span::before{
+.username span::before {
     content: '';
     position: absolute;
     top: 40px;
@@ -168,29 +186,26 @@ form .username {
     transition: .5s;
 }
 
-.username input:focus ~ label,
-.username input:focus ~ label{
+.username input:focus ~ label {
     top: -5px;
     color: #e94560;
 }
 
-.username input:focus ~ span::before,
-.username input:focus ~ span::before{
+.username input:focus ~ span::before {
     width: 100%;
-
 }
 
-.recordar a{
+.recordar a {
     margin: -5px 0 20px 5px;
     color: red;
     cursor: pointer;
 }
 
-.recordar:hover{
+.recordar:hover {
     text-decoration: underline;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     width: 100%;
     height: 50%;
     border: 1px solid;
@@ -198,29 +213,181 @@ input[type="submit"]{
     border-radius: 25px;
     font-size: 18px;
     color: white;
-    cursor:pointer;
+    cursor: pointer;
     outline: none;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     border-color: #e94560;
     transition: 5s;
 }
 
-.registrarse{
+.registrarse {
     margin: 30px 0;
     text-align: center;
     font-size: 16px;
     color: white;
 }
 
-.registrarse a{
-    color:#fff01e;
+.registrarse a {
+    color: #fff01e;
     text-decoration: none;
-
 }
 
-.registrarse a:hover{
+.registrarse a:hover {
     text-decoration: underline;
+}
 
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1d;
+    color: #ffffff;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #0d0d0d;
+    color: #d1c40e;
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #e94560;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Navegación */
+nav a {
+    text-decoration: none;
+    color: #e94560;
+    font-size: 1.25rem;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contenedor de la lista de juegos */
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+}
+
+/* Elemento individual del juego */
+.game-item {
+    background-color: #333333; /* Gris oscuro */
+    border: 2px solid #e94560; /* Borde rojo */
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Imagen del juego */
+.game-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 2px solid #e94560; /* Borde rojo inferior */
+    margin-bottom: 1rem;
+}
+
+/* Título del juego */
+.game-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+/* Descripción del juego */
+.game-item p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* Precio del juego */
+.price {
+    font-weight: bold;
+    color: #e94560;
+    border-top: 2px solid #d1c40e; /* Borde adicional encima del precio */
+    padding-top: 0.5rem;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1d;
+    color: #ffffff;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #0d0d0d;
+    color: #d1c40e;
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #e94560;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Navegación */
+nav a {
+    text-decoration: none;
+    color: #e94560;
+    font-size: 1.25rem;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contenedor de la lista de juegos */
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+}
+
+/* Elemento individual del juego */
+.game-item {
+    background-color: #333333; /* Gris oscuro */
+    border: 2px solid #e94560; /* Borde rojo */
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Imagen del juego */
+.game-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 2px solid #e94560; /* Borde rojo inferior */
+    margin-bottom: 1rem;
+}
+
+/* Título del juego */
+.game-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+/* Descripción del juego */
+.game-item p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* Precio del juego */
+.price {
+    font-weight: bold;
+    color: #e94560;
+    border-top: 2px solid #d1c40e; /* Borde adicional encima del precio */
+    padding-top: 0.5rem;
 }
